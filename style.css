@@ -1,0 +1,100 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: poppins;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.page-container {
+  position: relative;
+  transition: .5s ease;
+}
+
+.icon-dark #icon {
+  font-size: 1.4rem;
+  cursor: pointer;
+  width: 40px;
+  padding: 8px 10px;
+}
+
+.sun-icon {
+  color: black;
+  background-color: white;
+}
+
+.moon-icon {
+  color: white;
+  background: #151414;
+}
+
+.data-covid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  place-items: center;
+  gap: 20px;
+}
+
+.data-covid-content {
+  background-color: #151414;
+  width: 250px;
+  padding: .7rem 1rem;
+  border-radius: 10px;
+}
+
+.data-covid p {
+  color: white;
+}
+
+.provinsi {
+  text-align: center;
+  background-color: rgb(211, 70, 27);
+  padding: 5px 0;
+  margin-bottom: 10px;
+}
+
+.result {
+  text-align: justify;
+}
+
+.active-dark {
+  background-color: #151414;
+}
+
+.active-dark h1 {
+  color: white;
+}
+
+.active-dark .data-covid-content {
+  background-color: #292828;
+}
+
+.active-dark .icon-dark {
+  color: white;
+}
+
+@media (min-width: 768px) {
+  .page-container {
+    padding: 2rem 7rem;
+  }
+  .icon-dark {
+    position: absolute;
+    right: 40px;
+    top: 40px;
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+@media screen and (max-width:767px) {
+  .page-container {
+    padding: 2rem;
+  }
+  .icon-dark {
+    margin-bottom: 20px;
+  }
+}
