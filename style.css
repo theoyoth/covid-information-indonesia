@@ -40,10 +40,32 @@
 }
 
 .data-covid-content {
-  background-color: #151414;
+  background-color: #141415;
   width: 250px;
   padding: .7rem 1rem;
   border-radius: 10px;
+}
+
+/* #141415 black */
+
+.box-data-result {
+  display: flex;
+  justify-content: space-between;
+}
+
+.box-data-result .sembuh-data {
+  text-align: left;
+  width: 70px;
+}
+
+.box-data-result .positif-data {
+  text-align: left;
+  width: 70px;
+}
+
+.box-data-result .meninggal-data {
+  text-align: left;
+  width: 70px;
 }
 
 .data-covid p {

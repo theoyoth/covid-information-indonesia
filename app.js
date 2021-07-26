@@ -25,21 +25,44 @@ async function getDataCovid() {
     provinsi.innerHTML = attribut.Provinsi;
     box.appendChild(provinsi);
 
+    // create box for data
+    const boxDataSembuh = document.createElement("div");
+    boxDataSembuh.setAttribute("class", "box-data-result");
+    const boxDataPositif = document.createElement("div");
+    boxDataPositif.setAttribute("class", "box-data-result");
+    const boxDataMeninggal = document.createElement("div");
+    boxDataMeninggal.setAttribute("class", "box-data-result");
+
     // create p element for Kasus_Semb
     const sembuh = document.createElement("p");
     sembuh.setAttribute("class", "sembuh result");
-    sembuh.innerHTML = "Sembuh : " + attribut.Kasus_Semb;
-    box.appendChild(sembuh);
+    const sembuhData = document.createElement("p");
+    sembuhData.setAttribute("class", "sembuh-data");
+    sembuh.innerHTML = "Sembuh ";
+    sembuhData.innerHTML = ": " + attribut.Kasus_Semb;
+    boxDataSembuh.appendChild(sembuh);
+    boxDataSembuh.appendChild(sembuhData);
+    box.appendChild(boxDataSembuh);
     // Kasus_Posi
     const positif = document.createElement("p");
     positif.setAttribute("class", "positif result");
-    positif.innerHTML = "Positif : " + attribut.Kasus_Posi;
-    box.appendChild(positif);
+    const positifData = document.createElement("p");
+    positifData.setAttribute("class", "positif-data");
+    positif.innerHTML = "Positif ";
+    positifData.innerHTML = ": " + attribut.Kasus_Posi;
+    boxDataPositif.appendChild(positif);
+    boxDataPositif.appendChild(positifData);
+    box.appendChild(boxDataPositif);
     // Kasus_Meni
     const meninggal = document.createElement("p");
     meninggal.setAttribute("class", "meninggal result");
-    meninggal.innerHTML = "Meninggal : " + attribut.Kasus_Meni;
-    box.appendChild(meninggal);
+    const meninggalData = document.createElement("p");
+    meninggalData.setAttribute("class", "meninggal-data");
+    meninggal.innerHTML = "Meninggal ";
+    meninggalData.innerHTML = ": " + attribut.Kasus_Meni;
+    boxDataMeninggal.appendChild(meninggal);
+    boxDataMeninggal.appendChild(meninggalData);
+    box.appendChild(boxDataMeninggal);
 
     dataCovidContainer.appendChild(box);
   });
