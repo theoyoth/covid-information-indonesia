@@ -34,14 +34,14 @@
 
 .data-covid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   place-items: center;
   gap: 20px;
 }
 
 .data-covid-content {
   background-color: #141415;
-  width: 250px;
+  width: 300px;
   padding: .7rem 1rem;
   border-radius: 10px;
 }
@@ -55,17 +55,18 @@
 
 .box-data-result .sembuh-data {
   text-align: left;
-  width: 70px;
+  width: 95px;
 }
 
 .box-data-result .positif-data {
   text-align: left;
-  width: 70px;
+  width: 95px;
 }
 
 .box-data-result .meninggal-data {
   text-align: left;
-  width: 70px;
+  width: 95px;
+  /* border: 1px solid white; */
 }
 
 .data-covid p {
