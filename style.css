@@ -55,18 +55,21 @@
 
 .box-data-result .sembuh-data {
   text-align: left;
-  width: 95px;
+  width: 70px;
 }
 
 .box-data-result .positif-data {
   text-align: left;
-  width: 95px;
+  width: 70px;
 }
 
 .box-data-result .meninggal-data {
   text-align: left;
-  width: 95px;
-  /* border: 1px solid white; */
+  width: 70px;
+}
+
+.kasus-update-data {
+  width: 100px;
 }
 
 .data-covid p {
