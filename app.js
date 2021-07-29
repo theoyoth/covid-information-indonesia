@@ -14,11 +14,10 @@ const moonIcon = document.querySelector(".moon-icon");
 async function getDataCovid() {
   const response = await fetch(url);
   const datas = await response.json();
-  // const features = datas.features;
-  console.log(datas);
+  // console.log(datas);
 
   datas.forEach((data, i) => {
-    console.log(data);
+    // console.log(data);
     const box = document.createElement("div");
     box.setAttribute("class", "data-covid-content");
     // create p element for provinsi
@@ -92,3 +91,98 @@ function changeLight() {
   container.classList.remove("active-dark");
 }
 sunIcon.addEventListener("click", changeLight);
+
+// search field
+const inputSearch = document.getElementById("input-search");
+const btnSearch = document.getElementById("btn-search");
+const dataCovidSpesifik = document.getElementById("data-covid-spesifik");
+btnSearch.addEventListener("click", function () {
+  //  display none to class data-covid
+  const boxContent = document.querySelector(".data-covid");
+  boxContent.style.display = "none";
+  // console.log(inputSearch.value);
+  const urlSearch = `https://apicovid19indonesia-v2.vercel.app/api/indonesia/provinsi?name=${inputSearch.value}`;
+
+  async function getDataProvinsi() {
+    const responseInput = await fetch(urlSearch);
+    const dataInput = await responseInput.json();
+    console.log(dataInput);
+
+    dataInput.forEach((d) => {
+      // console.log(d);
+      // create box spesifik
+      const boxSpesifik = document.createElement("div");
+      boxSpesifik.setAttribute("class", "box-spesifik");
+
+      // box for each data spesifik
+      // box data sembuh spesifik
+      const boxDataSembuhSpesifik = document.createElement("div");
+      boxDataSembuhSpesifik.setAttribute(
+        "class",
+        "data-sembuh-spesifik data-spesifik"
+      );
+      // box data kasus spesifik
+      const boxDataPositifSpesifik = document.createElement("div");
+      boxDataPositifSpesifik.setAttribute(
+        "class",
+        "data-positif-spesifik data-spesifik"
+      );
+      // box data meninggal spesifik
+      const boxDataMeninggalSpesifik = document.createElement("div");
+      boxDataMeninggalSpesifik.setAttribute(
+        "class",
+        "data-meninggal-spesifik data-spesifik"
+      );
+      // create p element for provinsi
+      const provinsiSpesifik = document.createElement("p");
+      provinsiSpesifik.setAttribute("class", "data-covid-provinsi-spesifik");
+      provinsiSpesifik.innerHTML = d.provinsi;
+      boxSpesifik.appendChild(provinsiSpesifik);
+
+      // create p element for sembuh
+      const sembuhSpesifik = document.createElement("p");
+      sembuhSpesifik.setAttribute("class", "sembuh-spesifik");
+      const sembuhDataSpesifik = document.createElement("p");
+      sembuhDataSpesifik.setAttribute(
+        "class",
+        "sembuh-data-spesifik result-spesifik"
+      );
+      sembuhSpesifik.innerHTML = "Sembuh ";
+      sembuhDataSpesifik.innerHTML = ": " + d.sembuh;
+      boxDataSembuhSpesifik.appendChild(sembuhSpesifik);
+      boxDataSembuhSpesifik.appendChild(sembuhDataSpesifik);
+      boxSpesifik.appendChild(boxDataSembuhSpesifik);
+      // create p element for positif
+      const positifSpesifik = document.createElement("p");
+      positifSpesifik.setAttribute("class", "positif-spesifik");
+      const positifDataSpesifik = document.createElement("p");
+      positifDataSpesifik.setAttribute(
+        "class",
+        "positif-data-spesifik result-spesifik"
+      );
+      positifSpesifik.innerHTML = "Positif ";
+      positifDataSpesifik.innerHTML = ": " + d.kasus;
+      boxDataPositifSpesifik.appendChild(positifSpesifik);
+      boxDataPositifSpesifik.appendChild(positifDataSpesifik);
+      boxSpesifik.appendChild(boxDataPositifSpesifik);
+      // create p element for meninggal
+      const meninggalSpesifik = document.createElement("p");
+      meninggalSpesifik.setAttribute("class", "meninggal-spesifik");
+      const meninggalDataSpesifik = document.createElement("p");
+      meninggalDataSpesifik.setAttribute(
+        "class",
+        "meninggal-data-spesifik result-spesifik"
+      );
+      meninggalSpesifik.innerHTML = "Meninggal ";
+      meninggalDataSpesifik.innerHTML = ": " + d.meninggal;
+      boxDataMeninggalSpesifik.appendChild(meninggalSpesifik);
+      boxDataMeninggalSpesifik.appendChild(meninggalDataSpesifik);
+      boxSpesifik.appendChild(boxDataMeninggalSpesifik);
+
+      // display the data
+      dataCovidSpesifik.appendChild(boxSpesifik);
+    });
+  }
+
+  getDataProvinsi();
+});
